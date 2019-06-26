@@ -1,28 +1,48 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+      <h3>{{title}}</h3>
+      <div class="row col-md-12">
+        <Character
+           v-for="(id, index) in initial_ids"
+           :id="id"
+           :key="index"
+          />
+      </div>
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Character from '@/components/Character'
 
 export default {
-  name: 'app',
-  components: {
-    HelloWorld
-  }
-}
+    name: "app",
+    components: {
+        Character
+    },
+    data() {
+        return {
+            title: 'Generate Your Team',
+            initial_ids: [1,4,7]
+        }
+    }
+};
 </script>
 
 <style>
+body {
+  background: #263238;
+}
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  font-family: "Avenir", Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
-  color: #2c3e50;
+  color: white;
   margin-top: 60px;
+}
+.character-card {
+    border: 2px solid #4FC08D;
+    border-radius: 4px;
+    cursor: pointer;
 }
 </style>
