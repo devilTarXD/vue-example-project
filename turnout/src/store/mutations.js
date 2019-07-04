@@ -6,6 +6,9 @@ const mutations = {
     },
     [types.SIGN_OUT] (state) {
         state.user = {}
+    },
+    [types.SET_EVENTS] (state, events_playload) {
+        state.events = events_playload
     }
 } 
 
